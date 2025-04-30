@@ -12,7 +12,7 @@ public class CatTest {
         Feline feline = mock(Feline.class);
         Cat cat = new Cat(feline);
         System.out.println("Cat says: " + cat.getSound());
-        assertEquals("мяу", cat.getSound());
+        assertEquals("Ожидался звук 'Мяу', но получено: ","мяу", cat.getSound());
     }
 
     @Test
@@ -20,7 +20,7 @@ public class CatTest {
         Feline feline = mock(Feline.class);
         when(feline.eatMeat()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
         Cat cat = new Cat(feline);
-        assertEquals(List.of("Животные", "Птицы", "Рыба"), cat.getFood());
+        assertEquals("Для кошки должен быть возвращен список: Животные, Птицы, Рыба",List.of("Животные", "Птицы", "Рыба"), cat.getFood());
     }
 }
 

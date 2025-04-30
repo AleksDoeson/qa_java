@@ -20,13 +20,13 @@ public class LionTest {
     @Test
     public void testMaleLionHasMane() throws Exception {
         Lion lion = new Lion("самец", feline);
-        assertTrue(lion.doesHaveMane());
+        assertTrue("Самец льва должен иметь гриву",lion.doesHaveMane());
     }
 
     @Test
     public void testFemaleLionDoesNotHaveMane() throws Exception {
         Lion lion = new Lion("самка", feline);
-        assertFalse(lion.doesHaveMane());
+        assertFalse("Самка льва не должна иметь гриву",lion.doesHaveMane());
     }
 
     @Test
@@ -43,7 +43,7 @@ public class LionTest {
     public void testGetKittensReturnsFelineKittens() throws Exception {
         Mockito.when(feline.getKittens()).thenReturn(3);
         Lion lion = new Lion("самец", feline);
-        assertEquals(3, lion.getKittens());
+        assertEquals("Лев должен вернуть количество котят, равное 3",3, lion.getKittens());
     }
 
     @Test
@@ -52,7 +52,7 @@ public class LionTest {
         Mockito.when(feline.getFood("Хищник")).thenReturn(expectedFood);
 
         Lion lion = new Lion("самец", feline);
-        assertEquals(expectedFood, lion.getFood());
+        assertEquals("Для льва (хищника) должен быть возвращен список еды: Животные, Птицы, Рыба",expectedFood, lion.getFood());
     }
 }
 

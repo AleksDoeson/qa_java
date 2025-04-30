@@ -11,13 +11,13 @@ public class AnimalTest {
     @Test
     public void testGetFoodForHerbivoreReturnsPlants() throws Exception {
         List<String> food = animal.getFood("Травоядное");
-        assertEquals(List.of("Трава", "Различные растения"), food);
+        assertEquals("Для травоядных должен возвращаться список: Трава, Различные растения",List.of("Трава", "Различные растения"), food);
     }
 
     @Test
     public void testGetFoodForPredatorReturnsMeat() throws Exception {
         List<String> food = animal.getFood("Хищник");
-        assertEquals(List.of("Животные", "Птицы", "Рыба"), food);
+        assertEquals("Для хищников должен возвращаться список: Животные, Птицы, Рыба",List.of("Животные", "Птицы", "Рыба"), food);
     }
 
     @Test(expected = Exception.class)
@@ -28,6 +28,6 @@ public class AnimalTest {
     @Test
     public void testGetFamilyReturnsCorrectFamily() {
         String family = animal.getFamily();
-        assertTrue(family.contains("заячьи"));
+        assertTrue("Семейство должно содержать слово 'заячьи'",family.contains("заячьи"));
     }
 }

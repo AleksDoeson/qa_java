@@ -12,7 +12,7 @@ public class LionFoodKittensTest {
         Feline feline = mock(Feline.class);
         when(feline.getFood("Хищник")).thenReturn(List.of("Животные", "Птицы", "Рыба"));
         Lion lion = new Lion("самец", feline);
-        assertEquals(List.of("Животные", "Птицы", "Рыба"), lion.getFood());
+        assertEquals("Метод getFood() для льва должен вернуть список: Животные, Птицы, Рыба",List.of("Животные", "Птицы", "Рыба"), lion.getFood());
     }
 
     @Test
@@ -20,7 +20,7 @@ public class LionFoodKittensTest {
         Feline feline = mock(Feline.class);
         when(feline.getKittens()).thenReturn(1);
         Lion lion = new Lion("самка", feline);
-        assertEquals(1, lion.getKittens());
+        assertEquals("Метод getKittens() для львицы должен вернуть количество котят = 1",1, lion.getKittens());
     }
 }
 
