@@ -18,37 +18,43 @@ public class LionTest {
     }
 
     @Test
-    public void maleLionHasMane() throws Exception {
-        Lion lion = new Lion("Самец", feline);
+    public void testMaleLionHasMane() throws Exception {
+        Lion lion = new Lion("самец", feline);
         assertTrue(lion.doesHaveMane());
     }
 
     @Test
-    public void femaleLionDoesNotHaveMane() throws Exception {
-        Lion lion = new Lion("Самка", feline);
+    public void testFemaleLionDoesNotHaveMane() throws Exception {
+        Lion lion = new Lion("самка", feline);
         assertFalse(lion.doesHaveMane());
     }
 
-    @Test(expected = Exception.class)
-    public void lionWithWrongSexThrowsException() throws Exception {
-        new Lion("Дракон", feline); // неправильный пол
+    @Test
+    public void testLionWithWrongSexThrowsException() {
+        try {
+            new Lion("Дракон", feline); // неправильный пол
+            fail("Ожидалось исключение, но его не было");
+        } catch (Exception e) {
+            assertEquals("Используйте допустимые значения пола животного - самец или самка", e.getMessage());
+        }
     }
 
     @Test
-    public void getKittensReturnsFelineKittens() throws Exception {
+    public void testGetKittensReturnsFelineKittens() throws Exception {
         Mockito.when(feline.getKittens()).thenReturn(3);
-        Lion lion = new Lion("Самец", feline);
+        Lion lion = new Lion("самец", feline);
         assertEquals(3, lion.getKittens());
     }
 
     @Test
-    public void getFoodReturnsPredatorFood() throws Exception {
+    public void testGetFoodReturnsPredatorFood() throws Exception {
         List<String> expectedFood = List.of("Животные", "Птицы", "Рыба");
         Mockito.when(feline.getFood("Хищник")).thenReturn(expectedFood);
 
-        Lion lion = new Lion("Самец", feline);
+        Lion lion = new Lion("самец", feline);
         assertEquals(expectedFood, lion.getFood());
     }
 }
+
 
 

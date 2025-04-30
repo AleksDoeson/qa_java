@@ -1,6 +1,8 @@
 package com.example;
 
+import org.junit.Before;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
@@ -8,25 +10,31 @@ import java.util.List;
 
 public class AlexLionTest {
 
-    @Test
-    public void getFriendsReturnsCorrectList() throws Exception {
+    private AlexLion alex;
+
+    @Before
+    public void setUp() throws Exception {
         Feline feline = mock(Feline.class);
-        AlexLion alex = new AlexLion(feline);
-        assertEquals(List.of("Марти", "Глория", "Мелман"), alex.getFriends());
+        alex = new AlexLion(feline);
     }
 
     @Test
-    public void getPlaceOfLivingReturnsCorrectPlace() throws Exception {
-        Feline feline = mock(Feline.class);
-        AlexLion alex = new AlexLion(feline);
-        assertEquals("Нью-Йоркский зоопарк", alex.getPlaceOfLiving());
+    public void testGetFriendsReturnsCorrectList() {
+        assertEquals("Должен вернуть список друзей: Марти, Глория, Мелман",
+                List.of("Марти", "Глория", "Мелман"), alex.getFriends());
     }
 
     @Test
-    public void getKittensReturnsZero() throws Exception {
-        Feline feline = mock(Feline.class);
-        AlexLion alex = new AlexLion(feline);
-        assertEquals(0, alex.getKittens());
+    public void testGetPlaceOfLivingReturnsCorrectPlace() {
+        assertEquals("Должен вернуть место проживания: Нью-Йоркский зоопарк",
+                "Нью-Йоркский зоопарк", alex.getPlaceOfLiving());
+    }
+
+    @Test
+    public void testGetKittensReturnsZero() {
+        assertEquals("Алекс не должен иметь детей", 0, alex.getKittens());
     }
 }
+
+
 

@@ -8,18 +8,18 @@ import java.util.List;
 public class LionFoodKittensTest {
 
     @Test
-    public void getFoodReturnsListOfFood() throws Exception {
+    public void testGetFoodReturnsListOfFood() throws Exception {
         Feline feline = mock(Feline.class);
         when(feline.getFood("Хищник")).thenReturn(List.of("Животные", "Птицы", "Рыба"));
-        Lion lion = new Lion("Самец", feline);
+        Lion lion = new Lion("самец", feline);
         assertEquals(List.of("Животные", "Птицы", "Рыба"), lion.getFood());
     }
 
     @Test
-    public void getKittensReturnsCorrectCount() throws Exception {
+    public void testGetKittensReturnsCorrectCount() throws Exception {
         Feline feline = mock(Feline.class);
         when(feline.getKittens()).thenReturn(1);
-        Lion lion = new Lion("Самка", feline);
+        Lion lion = new Lion("самка", feline);
         assertEquals(1, lion.getKittens());
     }
 }

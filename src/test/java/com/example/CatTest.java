@@ -8,14 +8,15 @@ import java.util.List;
 public class CatTest {
 
     @Test
-    public void getSoundReturnsMeow() {
+    public void testGetSoundReturnsMeow() {
         Feline feline = mock(Feline.class);
         Cat cat = new Cat(feline);
-        assertEquals("Мяу", cat.getSound());
+        System.out.println("Cat says: " + cat.getSound());
+        assertEquals("мяу", cat.getSound());
     }
 
     @Test
-    public void getFoodReturnsMeatList() throws Exception {
+    public void testGetFoodReturnsMeatList() throws Exception {
         Feline feline = mock(Feline.class);
         when(feline.eatMeat()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
         Cat cat = new Cat(feline);

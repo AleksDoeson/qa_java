@@ -9,24 +9,24 @@ public class AnimalTest {
     private final Animal animal = new Animal();
 
     @Test
-    public void getFoodForHerbivoreReturnsPlants() throws Exception {
+    public void testGetFoodForHerbivoreReturnsPlants() throws Exception {
         List<String> food = animal.getFood("Травоядное");
         assertEquals(List.of("Трава", "Различные растения"), food);
     }
 
     @Test
-    public void getFoodForPredatorReturnsMeat() throws Exception {
+    public void testGetFoodForPredatorReturnsMeat() throws Exception {
         List<String> food = animal.getFood("Хищник");
         assertEquals(List.of("Животные", "Птицы", "Рыба"), food);
     }
 
     @Test(expected = Exception.class)
-    public void getFoodForUnknownAnimalThrowsException() throws Exception {
+    public void testGetFoodForUnknownAnimalThrowsException() throws Exception {
         animal.getFood("Дракон"); // неправильное животное
     }
 
     @Test
-    public void getFamilyReturnsCorrectFamily() {
+    public void testGetFamilyReturnsCorrectFamily() {
         String family = animal.getFamily();
         assertTrue(family.contains("заячьи"));
     }
